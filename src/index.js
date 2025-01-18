@@ -65,7 +65,7 @@ app.get("/pets/:id", (req, res) => {
 
     res.status(200).send({ ok: true, mensagem: "Pet obtido com sucesso", pet });
   } catch (error) {
-    res.status(500).send({ ok: false, message: "Erro ao obter o pet" });
+    res.status(500).send({ ok: false, message: error.toString() });
   }
 });
 
@@ -86,7 +86,7 @@ app.post("/pets", [validateBodyMiddleware], (req, res) => {
 
     res.status(201).send({ ok: true, message: "Pet criado com sucesso", pet });
   } catch (error) {
-    res.status(500).send({ ok: false, message: "Erro ao criar o pet" });
+    res.status(500).send({ ok: false, message: error.toString() });
   }
 });
 
@@ -111,7 +111,7 @@ app.put("/pets/:id", [validateBodyMiddleware], (req, res) => {
       .status(200)
       .send({ ok: true, message: "Pet atualizado com sucesso", pet });
   } catch (error) {
-    res.status(500).send({ ok: false, message: "Erro ao atualizar o pet" });
+    res.status(500).send({ ok: false, message: error.toString() });
   }
 });
 
@@ -130,7 +130,7 @@ app.delete("/pets/:id", (req, res) => {
 
     res.status(200).send({ ok: true, message: "Pet deletado com sucesso" });
   } catch (error) {
-    res.status(500).send({ ok: false, message: "Erro ao deletar o pet" });
+    res.status(500).send({ ok: false, message: error.toString() });
   }
 });
 

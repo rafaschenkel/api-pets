@@ -28,9 +28,7 @@ export function validateBodyMiddleware(req, res, next) {
 
     next();
   } catch (error) {
-    res
-      .status(500)
-      .send({ ok: false, message: "Erro ao validar o corpo da requisição" });
+    res.status(500).send({ ok: false, message: error.toString() });
   }
 }
 
@@ -52,8 +50,6 @@ export function validateQueryMiddleware(req, res, next) {
 
     next();
   } catch (error) {
-    res
-      .status(500)
-      .send({ ok: false, message: "Erro ao validar o corpo da requisição" });
+    res.status(500).send({ ok: false, message: error.toString() });
   }
 }
